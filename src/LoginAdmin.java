@@ -36,5 +36,14 @@ public class LoginAdmin extends JFrame {
                 setVisible(false);
             }
         });
+
+        loginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+
+
+            }
+        });
     }
 }

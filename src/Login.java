@@ -43,23 +43,36 @@ public class Login extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                try (MongoClient mongoClient = MongoClients.create("")) {
+                try (MongoClient mongoClient = MongoClients.create("mongodb+srv://ithancamacho:ithancamacho@biblioteca.psx9hpj.mongodb.net/?retryWrites=true&w=majority&appName=Biblioteca")) {
 
                     MongoDatabase database = mongoClient.getDatabase("BibliotecaDigital");
                     MongoCollection<Document> collection = database.getCollection("Usuarios");
 
                     FindIterable<Document> documentos = collection.find();
 
+                    boolean acceso = false;
+
                     for (Document documento : documentos) {
                         String usuario = documento.getString("usuario");
-                        String contrasena = documento.getString("correo");
+                        String contrasena = documento.getString("contraseña");
 
-
+                        if (usuarioTxt.getText().equals(usuario) && contraTxt.getText().equals(contrasena)) {
+                            JOptionPane.showMessageDialog(null, "Acceso Exitoso");
+                            new Buscador();
+                            setVisible(false);
+                            acceso = true;
+                            break;
+                        }
                     }
-                }
 
+                    if (!acceso) {
+                        JOptionPane.showMessageDialog(null, "Las Credenciales no coinciden o no existen");
+                    }
+
+                }
             }
         });
+
 
         RegistrarBtn.addActionListener(new ActionListener() {
             @Override

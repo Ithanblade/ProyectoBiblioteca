@@ -36,6 +36,8 @@ public class Registro extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                String[] terminaciones={".com",".ec",".gob",".org",".net"};
+
                 if (usuarioTxt.getText().equals("") || contraTxt.getText().equals("") || correoTxt.getText().equals("")|| comboBox1.getSelectedItem().toString().equals("Seleccione una preferencia...")) {
 
                     JOptionPane.showMessageDialog(null, "Por favor, llene todos los campos");
@@ -44,6 +46,25 @@ public class Registro extends JFrame {
 
                 if (!contraTxt.getText().equals(confirmarTxt.getText())) {
                     JOptionPane.showMessageDialog(null, "Las contraseñas deben ser iguales");
+                    return;
+                }
+
+                if (!correoTxt.getText().contains("@")) {
+                    JOptionPane.showMessageDialog(null, "Ingrese un correo electronico válido");
+                    return;
+                }
+
+                boolean correoValido = false;
+
+                for (String extension : terminaciones) {
+                    if (correoTxt.getText().endsWith(extension)) {
+                        correoValido = true;
+                        break;
+                    }
+                }
+
+                if (!correoValido) {
+                    JOptionPane.showMessageDialog(null, "Ingrese un correo válido");
                     return;
                 }
 
