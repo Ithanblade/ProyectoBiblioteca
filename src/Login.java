@@ -51,13 +51,10 @@ public class Login extends JFrame{
                     FindIterable<Document> documentos = collection.find();
 
                     for (Document documento : documentos) {
-                        String nombre = documento.getString("nombre");
-                        String apellido = documento.getString("apellido");
-                        int edad = documento.getInteger("edad");
+                        String usuario = documento.getString("usuario");
+                        String contrasena = documento.getString("correo");
 
-                        System.out.println("Nombre: " + nombre);
-                        System.out.println("Apellido: " + apellido);
-                        System.out.println("Edad: " + edad);
+
                     }
                 }
 
