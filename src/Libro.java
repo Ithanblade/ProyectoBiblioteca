@@ -56,7 +56,7 @@ public class Libro {
     //no hay setter del ISBN ya que voy a generarlo mediante un metodo.
 
 
-    //Metodo del ISBN
+    //Metodo del ISBN-13
     private String generarISBN() {
         Random random = new Random();
         StringBuilder isbn = new StringBuilder("978"); //Tengo entendido que siempre empiezan con "978" o "979"
