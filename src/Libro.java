@@ -76,7 +76,7 @@ public class Libro {
             }
         }
 
-        int digitoControl = 10 - (total % 10); //para el ultimo numero se resta 10 - el modulo de 10 del total, algo así como las unidades, si es 14 me devuelve 4
+        int digitoControl = 10 - (total % 10); //para el ultimo numero se resta 10 - el modulo de 10 del total, algo así como las unidades, si es 14 me devuelve 4 y esto lo resto de 10.
         if (digitoControl == 10) {//si el numero sale 10 entonces el numero será 0.
             digitoControl = 0;
         }
