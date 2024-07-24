@@ -6,6 +6,7 @@ import org.bson.Document;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.result.UpdateResult;
 
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -50,7 +51,7 @@ public class Registro extends JFrame {
                 Usuario NuevoUsuario = new Usuario(usuarioTxt.getText(), correoTxt.getText(), comboBox1.getSelectedItem().toString(), contraTxt.getText());
 
 
-                try (MongoClient mongoClient = MongoClients.create("mongodb+srv://ithancamacho:epn123@biblioteca.psx9hpj.mongodb.net/?retryWrites=true&w=majority&appName=Biblioteca")) {
+                try (MongoClient mongoClient = MongoClients.create("mongodb+srv://ithancamacho:ithancamacho@biblioteca.psx9hpj.mongodb.net/?retryWrites=true&w=majority&appName=Biblioteca")) {
                     MongoDatabase database = mongoClient.getDatabase("BibliotecaDigital");
                     MongoCollection<Document> collection = database.getCollection("Usuarios");
                     Document documento = new Document("usuario", NuevoUsuario.getUsuario())
@@ -60,6 +61,7 @@ public class Registro extends JFrame {
 
                     collection.insertOne(documento);
                     JOptionPane.showMessageDialog(null, "Registro creado correctamente");
+                    System.out.println("Registro creado correctamente");
                     new Login();
                     setVisible(false);
                 }
