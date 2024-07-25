@@ -11,7 +11,7 @@ public class Buscador extends JFrame {
 
     public Buscador() {
 
-        setTitle("Login");
+        setTitle("Buscador de Libros");
         setContentPane(buscadorPanel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 400);

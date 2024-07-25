@@ -23,7 +23,7 @@ public class Registro extends JFrame {
 
     public Registro() {
 
-        setTitle("Login");
+        setTitle("Registro");
         setContentPane(RegistroPanel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 400);
