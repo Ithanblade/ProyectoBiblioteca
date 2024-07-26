@@ -56,7 +56,7 @@ public class Login extends JFrame{
                         String usuario = documento.getString("usuario");
                         String contrasena = documento.getString("contraseña");
 
-                        if (usuarioTxt.getText().equals(usuario) && contraTxt.getText().equals(contrasena)) {
+                        if (usuarioTxt.getText().equals(usuario) && Encriptacion.generateHash(contraTxt.getText()).equals(contrasena)) {
                             JOptionPane.showMessageDialog(null, "Acceso Exitoso");
                             new Buscador();
                             setVisible(false);
@@ -82,4 +82,5 @@ public class Login extends JFrame{
             }
         });
     }
+
 }
