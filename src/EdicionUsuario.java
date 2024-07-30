@@ -6,9 +6,7 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
-import com.mongodb.client.FindIterable;
 
 public class EdicionUsuario extends JFrame{
     private JPanel Edicion;
@@ -17,6 +15,7 @@ public class EdicionUsuario extends JFrame{
     private JTextField correoTxt;
     private JComboBox comboBox1;
     private JTextField usuarioTxt;
+    private JButton volverButton;
 
     public EdicionUsuario() {
 
@@ -62,6 +61,13 @@ public class EdicionUsuario extends JFrame{
                     }
                 }
 
+            }
+        });
+        volverButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new GestionUsuarios();
+                setVisible(false);
             }
         });
     }

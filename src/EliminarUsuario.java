@@ -14,6 +14,7 @@ public class EliminarUsuario extends JFrame {
     private JTextField usuarioTxt;
     private JButton eliminarButton;
     private JPanel Eliminar;
+    private JButton volverButton;
 
     public EliminarUsuario() {
 
@@ -55,5 +56,12 @@ public class EliminarUsuario extends JFrame {
             }
         });
 
+        volverButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new GestionUsuarios();
+                setVisible(false);
+            }
+        });
     }
 }

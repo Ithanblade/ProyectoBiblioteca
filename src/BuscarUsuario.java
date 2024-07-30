@@ -14,6 +14,7 @@ public class BuscarUsuario extends JFrame{
     private JTextField usuarioTxt;
     private JButton buscarButton;
     private JPanel Buscar;
+    private JButton volverBtn;
 
     public BuscarUsuario() {
 
@@ -53,6 +54,14 @@ public class BuscarUsuario extends JFrame{
                         JOptionPane.showMessageDialog(null, "Usuario no encontrado");
                     }
                 }
+            }
+        });
+
+        volverBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new GestionUsuarios();
+                setVisible(false);
             }
         });
     }
