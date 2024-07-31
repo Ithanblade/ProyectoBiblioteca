@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.util.Base64;
 
 import org.bson.Document;
-import org.bson.types.Binary;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;

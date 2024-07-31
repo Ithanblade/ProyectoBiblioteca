@@ -74,7 +74,7 @@ public class BuscarLibro extends JFrame {
                         ByteArrayInputStream bais = new ByteArrayInputStream(portadaData);
                         BufferedImage portadaImage = ImageIO.read(bais);
 
-                        ImageIcon icon = new ImageIcon(portadaImage.getScaledInstance(100, 150, Image.SCALE_SMOOTH));
+                        ImageIcon icon = new ImageIcon(portadaImage.getScaledInstance(150, 200, Image.SCALE_SMOOTH));
                         tituloPortadaLabel.setText("Portada:");
                         portadaLabel.setIcon(icon);
 
@@ -104,7 +104,4 @@ public class BuscarLibro extends JFrame {
         });
     }
 
-    public static void main(String[] args) {
-        new BuscarLibro();
-    }
 }

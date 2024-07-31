@@ -20,6 +20,8 @@ public class Buscador extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
 
+
+
         buscarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

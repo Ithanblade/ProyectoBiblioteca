@@ -39,5 +39,19 @@ public class GestionLibros extends JFrame {
 
             }
         });
+        editarLibroButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new EditarLibro();
+                setVisible(false);
+            }
+        });
+        eliminarLibroButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new EliminarLibro();
+                setVisible(false);
+            }
+        });
     }
 }
