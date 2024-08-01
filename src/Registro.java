@@ -19,6 +19,7 @@ public class Registro extends JFrame {
     private JTextField correoTxt;
     private JComboBox<String> comboBox1;
     private JTextField confirmarTxt;
+    private JButton volverButton;
 
     public Registro() {
         setTitle("Registro");
@@ -97,6 +98,13 @@ public class Registro extends JFrame {
                     new Login();
                     setVisible(false);
                 }
+            }
+        });
+        volverButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new Login();
+                setVisible(false);
             }
         });
     }

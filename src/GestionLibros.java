@@ -53,5 +53,12 @@ public class GestionLibros extends JFrame {
                 setVisible(false);
             }
         });
+        volverButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new MenuAdmin();
+                setVisible(false);
+            }
+        });
     }
 }

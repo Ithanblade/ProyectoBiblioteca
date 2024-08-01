@@ -6,16 +6,27 @@ import com.mongodb.client.result.DeleteResult;
 import org.bson.Document;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class EliminarLibro {
+public class EliminarLibro extends JFrame {
     private JPanel eliminarPanel;
     private JButton eliminarButton;
     private JTextField tituloTxt;
     private JButton volverBtn;
 
     public EliminarLibro() {
+
+        setTitle("Eliminar Usuarios");
+        setContentPane(eliminarPanel);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(400, 300);
+        setMinimumSize(new Dimension(400, 300));
+        pack();
+        setLocationRelativeTo(null);
+        setVisible(true);
+
         eliminarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -42,6 +53,13 @@ public class EliminarLibro {
                     }
                 }
 
+            }
+        });
+        volverBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new GestionLibros();
+                setVisible(false);
             }
         });
     }

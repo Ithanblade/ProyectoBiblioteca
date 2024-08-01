@@ -21,10 +21,11 @@ import com.mongodb.client.MongoDatabase;
         private JTextField tituloTxt;
         private JTextField paginasTxt;
         private JTextField autorTxt;
-        private JTextField generoTxt;
         private JButton seleccionarImagenButton;
         private JLabel portadaLabel;
         private JButton volverButton;
+        private JComboBox comboBox1;
+        private JTextField linkTxt;
         private BufferedImage portadaImage;
 
         public CrearLibro() {
@@ -58,7 +59,7 @@ import com.mongodb.client.MongoDatabase;
             crearButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if (tituloTxt.getText().isEmpty() || autorTxt.getText().isEmpty() || generoTxt.getText().isEmpty() || paginasTxt.getText().isEmpty() || portadaImage == null) {
+                    if (tituloTxt.getText().isEmpty() || autorTxt.getText().isEmpty() || comboBox1.getSelectedItem().equals("Seleccione un genero...") || paginasTxt.getText().isEmpty() || portadaImage == null || portadaImage.getWidth() == 0 || portadaImage.getHeight() == 0 ||linkTxt.getText().isEmpty()) {
                         JOptionPane.showMessageDialog(null, "Por favor, llene todos los campos y seleccione una imagen");
                         return;
                     }
@@ -69,7 +70,7 @@ import com.mongodb.client.MongoDatabase;
                         String portadaBase64 = Base64.getEncoder().encodeToString(baos.toByteArray());
 
                         // Crear objeto Libro
-                        Libro libro = new Libro(tituloTxt.getText(),autorTxt.getText(),generoTxt.getText(),Integer.parseInt(paginasTxt.getText()),"",portadaBase64);
+                        Libro libro = new Libro(tituloTxt.getText(),autorTxt.getText(),comboBox1.getSelectedItem().toString(),Integer.parseInt(paginasTxt.getText()),"",portadaBase64,linkTxt.getText());
 
                         // Insertar libro en la base de datos
                         try (MongoClient mongoClient = MongoClients.create("mongodb+srv://ithancamacho:ithancamacho@biblioteca.psx9hpj.mongodb.net/?retryWrites=true&w=majority&appName=Biblioteca")) {
@@ -81,7 +82,8 @@ import com.mongodb.client.MongoDatabase;
                                     .append("genero", libro.genero)
                                     .append("numPaginas", libro.numPaginas)
                                     .append("ISBN", libro.ISBN)
-                                    .append("portada", libro.portada);
+                                    .append("portada", libro.portada)
+                                    .append("linkDescarga", libro.link);
 
                             collection.insertOne(libroDoc);
                         }

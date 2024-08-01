@@ -7,17 +7,19 @@ public class Libro {
     int numPaginas;
     String ISBN;
     String portada;
+    String link;
 
     public Libro() {
     }
 
-    public Libro(String titulo, String autor, String genero, int numPaginas, String ISBN,String portada) {
+    public Libro(String titulo, String autor, String genero, int numPaginas, String ISBN,String portada,String link) {
         this.titulo = titulo;
         this.autor = autor;
         this.genero = genero;
         this.numPaginas = numPaginas;
         this.ISBN = generarISBN(); //se iguala el ISBN a un metodo para generar el mismo
         this.portada = portada;
+        this.link = link;
     }
 
     public String getTitulo() {
@@ -62,6 +64,14 @@ public class Libro {
 
     public void setPortada(String portada) {
         this.portada = portada;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
     //no hay setter del ISBN ya que voy a generarlo mediante un metodo.
 

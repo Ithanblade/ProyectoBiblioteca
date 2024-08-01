@@ -36,16 +36,13 @@ public class BuscarLibro extends JFrame {
         setMinimumSize(new Dimension(1200, 600));
         setLocationRelativeTo(null);
 
-        // Inicializar el panel principal
         buscarPanel = new JPanel(new BorderLayout());
         setContentPane(buscarPanel);
 
-        // Inicializar la tabla y el scroll pane
         librosTable = new JTable();
         scrollPane = new JScrollPane(librosTable);
         buscarPanel.add(scrollPane, BorderLayout.CENTER);
 
-        // Inicializar el modelo de la tabla
         String[] columnNames = {"Título", "Autor", "Género", "Número de Páginas", "ISBN", "Portada"};
         tableModel = new DefaultTableModel(columnNames, 0) {
             @Override
@@ -57,34 +54,31 @@ public class BuscarLibro extends JFrame {
             }
         };
 
-        // Configurar la tabla
         librosTable.setModel(tableModel);
-        librosTable.setRowHeight(200); // Establecer la altura de las filas
+        librosTable.setRowHeight(200);
 
-        // Ajustar el ancho de las columnas
         TableColumnModel columnModel = librosTable.getColumnModel();
-        int[] columnWidths = {250, 200, 150, 150, 150, 250}; // Ancho de columnas
+        int[] columnWidths = {250, 200, 150, 150, 150, 250};
         for (int i = 0; i < columnModel.getColumnCount(); i++) {
             columnModel.getColumn(i).setPreferredWidth(columnWidths[i]);
         }
         librosTable.getColumn("Portada").setCellRenderer(new ImageRenderer());
 
-        // Panel superior para búsqueda y botones
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new BorderLayout());
         buscarPanel.add(topPanel, BorderLayout.NORTH);
 
-        // Título
+
         JLabel titleLabel = new JLabel("BUSCAR LIBROS", JLabel.CENTER);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
         topPanel.add(titleLabel, BorderLayout.NORTH);
 
-        // Panel de controles
+
         JPanel controlsPanel = new JPanel();
         controlsPanel.setLayout(new BoxLayout(controlsPanel, BoxLayout.Y_AXIS)); // Vertical layout
         topPanel.add(controlsPanel, BorderLayout.CENTER);
 
-        // Campo de texto para título
+
         JPanel tituloPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JLabel tituloLabel = new JLabel("Título:");
         tituloTxt = new JTextField(30); // Ajusta el tamaño del campo de texto
@@ -92,7 +86,7 @@ public class BuscarLibro extends JFrame {
         tituloPanel.add(tituloTxt);
         controlsPanel.add(tituloPanel);
 
-        // Campo de texto para autor
+
         JPanel autorPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JLabel autorLabel = new JLabel("Autor:");
         autorTxt = new JTextField(30); // Ajusta el tamaño del campo de texto
@@ -100,15 +94,15 @@ public class BuscarLibro extends JFrame {
         autorPanel.add(autorTxt);
         controlsPanel.add(autorPanel);
 
-        // ComboBox para género
+
         JPanel generoPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JLabel generoLabel = new JLabel("Género:");
-        generoComboBox = new JComboBox<>(new String[]{"Todos", "Novela","Ciencia","Ficción","Fantasía","Misterio","Romance","Terror","Aventura"});
+        generoComboBox = new JComboBox<>(new String[]{"Todos", "Novela","Ciencia Ficción","Fantasía","Misterio","Romance","Terror","Aventura"});
         generoPanel.add(generoLabel);
         generoPanel.add(generoComboBox);
         controlsPanel.add(generoPanel);
 
-        // Botones
+
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout());
         buscarButton = new JButton("Buscar");
@@ -117,7 +111,7 @@ public class BuscarLibro extends JFrame {
         buttonPanel.add(volverBtn);
         controlsPanel.add(buttonPanel);
 
-        // Evento del botón "Buscar"
+
         buscarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -128,7 +122,7 @@ public class BuscarLibro extends JFrame {
             }
         });
 
-        // Evento del botón "Volver"
+
         volverBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -137,7 +131,7 @@ public class BuscarLibro extends JFrame {
             }
         });
 
-        // Cargar todos los libros al iniciar
+
         cargarLibros("", "", "Todos");
 
         setVisible(true);
@@ -184,11 +178,6 @@ public class BuscarLibro extends JFrame {
         }
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new BuscarLibro());
-    }
-
-    // Renderer para mostrar imágenes en la tabla
     private static class ImageRenderer extends JLabel implements TableCellRenderer {
         public ImageRenderer() {
             setOpaque(true);

@@ -26,6 +26,8 @@ public class EditarLibro extends JFrame {
     private JTextField paginasTxt;
     private JPanel editarPanel;
     private JButton volverBtn;
+    private JTextField linkTxt;
+    private JComboBox comboBox1;
     private BufferedImage portadaImage;
 
 
@@ -83,12 +85,19 @@ public class EditarLibro extends JFrame {
                         if (!autorTxt.getText().isEmpty()) {
                             updates.append("autor", autorTxt.getText());
                         }
-                        if (!generoTxt.getText().isEmpty()) {
-                            updates.append("genero", generoTxt.getText());
+                        if (comboBox1.getSelectedIndex() != 0) {
+                            updates.append("genero", comboBox1.getSelectedItem().toString());
                         }
                         if (!paginasTxt.getText().isEmpty()) {
                             updates.append("numPaginas", Integer.parseInt(paginasTxt.getText()));
                         }
+                        if (!linkTxt.getText().isEmpty()) {
+                            updates.append("link", linkTxt.getText());
+                        }
+                        if (comboBox1.getSelectedIndex() != 0) {
+                            updates.append("genero", comboBox1.getSelectedItem().toString());
+                        }
+
                         if (portadaImage != null) {
                             ByteArrayOutputStream baos = new ByteArrayOutputStream();
                             ImageIO.write(portadaImage, "jpg", baos);
