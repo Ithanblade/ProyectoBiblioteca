@@ -92,7 +92,7 @@ public class EditarLibro extends JFrame {
                             updates.append("numPaginas", Integer.parseInt(paginasTxt.getText()));
                         }
                         if (!linkTxt.getText().isEmpty()) {
-                            updates.append("link", linkTxt.getText());
+                            updates.append("linkDescarga", linkTxt.getText());
                         }
                         if (comboBox1.getSelectedIndex() != 0) {
                             updates.append("genero", comboBox1.getSelectedItem().toString());

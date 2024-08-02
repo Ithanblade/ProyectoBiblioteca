@@ -8,16 +8,15 @@ import org.bson.Document;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumnModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.Base64;
 
 public class Buscador extends JFrame {
@@ -39,7 +38,6 @@ public class Buscador extends JFrame {
         setMinimumSize(new Dimension(1200, 600));
         setLocationRelativeTo(null);
 
-        // Inicialización de componentes
         buscarPanel = new JPanel(new BorderLayout());
         setContentPane(buscarPanel);
 
@@ -62,6 +60,7 @@ public class Buscador extends JFrame {
                 return column == 6;  // Solo la columna de descarga es editable
             }
         };
+
         librosTable.setModel(tableModel);
         librosTable.setRowHeight(200);
 
@@ -225,22 +224,16 @@ public class Buscador extends JFrame {
                     fireEditingStopped();
                     int row = librosTable.getSelectedRow();
                     String linkDescarga = (String) tableModel.getValueAt(row, 6);
-                    String tituloLibro = (String) tableModel.getValueAt(row, 0);
                     if (linkDescarga != null && !linkDescarga.isEmpty()) {
                         try {
-                            URI uri = new URI(linkDescarga);
+
+                            URL url = new URL(linkDescarga);
                             if (Desktop.isDesktopSupported()) {
-                                Desktop.getDesktop().browse(uri);
-
-                                // Obtener el usuario actual y guardar la descarga
-                                String usuarioActual = UsuarioActual.getNombreUsuario();
-                                Descargas descarga = new Descargas(tituloLibro, usuarioActual,"");
-                                descarga.guardar();
-
+                                Desktop.getDesktop().browse(url.toURI());
                             } else {
                                 System.err.println("Desktop no soportado");
                             }
-                        } catch (URISyntaxException | IOException ex) {
+                        } catch (Exception ex) {
                             System.err.println("Error al intentar abrir el enlace: " + ex.getMessage());
                         }
                     } else {
@@ -263,7 +256,4 @@ public class Buscador extends JFrame {
         }
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new Buscador());
-    }
 }
