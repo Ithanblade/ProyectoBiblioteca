@@ -7,6 +7,7 @@ public class MenuAdmin extends JFrame{
     private JPanel MenuPanel;
     private JButton usuariosButton;
     private JButton librosButton;
+    private JButton seguimientoADescargasButton;
 
     public MenuAdmin() {
 
@@ -33,6 +34,13 @@ public class MenuAdmin extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 new GestionLibros();
+                setVisible(false);
+            }
+        });
+        seguimientoADescargasButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new SeguimientoDescargas();
                 setVisible(false);
             }
         });

@@ -34,8 +34,8 @@ public class Buscador extends JFrame {
     public Buscador() {
         setTitle("Buscar Libro");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(1200, 600);
-        setMinimumSize(new Dimension(1200, 600));
+        setSize(1400, 800);
+        setMinimumSize(new Dimension(1400, 800));
         setLocationRelativeTo(null);
 
         buscarPanel = new JPanel(new BorderLayout());
@@ -77,24 +77,28 @@ public class Buscador extends JFrame {
         topPanel.setLayout(new BorderLayout());
         buscarPanel.add(topPanel, BorderLayout.NORTH);
 
-        JLabel titleLabel = new JLabel("BUSCAR LIBROS", JLabel.CENTER);
+        JLabel titleLabel = new JLabel("BIENVENIDO A LibroConnect", JLabel.CENTER);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
         topPanel.add(titleLabel, BorderLayout.NORTH);
 
+        JLabel mensajeLabel = new JLabel("BUSCAR LIBROS", JLabel.CENTER);
+        mensajeLabel.setFont(new Font("Arial", Font.BOLD, 17));
+        topPanel.add(mensajeLabel, BorderLayout.CENTER);
+
         JPanel controlsPanel = new JPanel();
-        controlsPanel.setLayout(new BoxLayout(controlsPanel, BoxLayout.Y_AXIS)); // Vertical layout
-        topPanel.add(controlsPanel, BorderLayout.CENTER);
+        controlsPanel.setLayout(new BoxLayout(controlsPanel, BoxLayout.Y_AXIS));
+        topPanel.add(controlsPanel, BorderLayout.SOUTH);
 
         JPanel tituloPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JLabel tituloLabel = new JLabel("Título:");
-        tituloTxt = new JTextField(30); // Ajusta el tamaño del campo de texto
+        tituloTxt = new JTextField(30);
         tituloPanel.add(tituloLabel);
         tituloPanel.add(tituloTxt);
         controlsPanel.add(tituloPanel);
 
         JPanel autorPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JLabel autorLabel = new JLabel("Autor:");
-        autorTxt = new JTextField(30); // Ajusta el tamaño del campo de texto
+        autorTxt = new JTextField(30);
         autorPanel.add(autorLabel);
         autorPanel.add(autorTxt);
         controlsPanel.add(autorPanel);
@@ -109,7 +113,7 @@ public class Buscador extends JFrame {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout());
         buscarButton = new JButton("Buscar");
-        volverBtn = new JButton("Volver");
+        volverBtn = new JButton("Salir");
         buttonPanel.add(buscarButton);
         buttonPanel.add(volverBtn);
         controlsPanel.add(buttonPanel);
@@ -226,7 +230,6 @@ public class Buscador extends JFrame {
                     String linkDescarga = (String) tableModel.getValueAt(row, 6);
                     if (linkDescarga != null && !linkDescarga.isEmpty()) {
                         try {
-
                             URL url = new URL(linkDescarga);
                             if (Desktop.isDesktopSupported()) {
                                 Desktop.getDesktop().browse(url.toURI());
@@ -256,4 +259,7 @@ public class Buscador extends JFrame {
         }
     }
 
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new Buscador());
+    }
 }
