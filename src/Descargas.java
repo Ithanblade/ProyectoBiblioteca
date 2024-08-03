@@ -4,13 +4,12 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Descargas {
     String libro;
     String usuario;
-    String fechaDescarga;
+    Date fechaDescarga;
 
     public Descargas() {
     }
@@ -18,7 +17,7 @@ public class Descargas {
     public Descargas(String libro, String usuario, String fechaDescarga) {
         this.libro = libro;
         this.usuario = usuario;
-        this.fechaDescarga = generarFecha();
+        this.fechaDescarga = new Date();
     }
 
     public String getLibro() {
@@ -37,17 +36,10 @@ public class Descargas {
         this.usuario = usuario;
     }
 
-    public String getFechaDescarga() {
+    public Date getFechaDescarga() {
         return fechaDescarga;
     }
 
-
-    private String generarFecha() {
-
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        Date fecha = new Date();
-        return formato.format(fecha);
-    }
 
     public void guardar() {
         try (MongoClient mongoClient = MongoClients.create("mongodb+srv://ithancamacho:ithancamacho@biblioteca.psx9hpj.mongodb.net/?retryWrites=true&w=majority&appName=Biblioteca")) {

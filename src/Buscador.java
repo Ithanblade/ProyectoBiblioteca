@@ -132,7 +132,7 @@ public class Buscador extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                new GestionLibros();
+                new Login();
             }
         });
 
@@ -228,11 +228,18 @@ public class Buscador extends JFrame {
                     fireEditingStopped();
                     int row = librosTable.getSelectedRow();
                     String linkDescarga = (String) tableModel.getValueAt(row, 6);
+                    String libro = (String) tableModel.getValueAt(row, 0);
+                    String usuario = "nombre_del_usuario";  // Aquí puedes obtener el nombre del usuario actual
+
                     if (linkDescarga != null && !linkDescarga.isEmpty()) {
                         try {
                             URL url = new URL(linkDescarga);
                             if (Desktop.isDesktopSupported()) {
                                 Desktop.getDesktop().browse(url.toURI());
+
+
+                                Descargas descarga = new Descargas(libro, UsuarioActual.getNombreUsuario(), "");
+                                descarga.guardar();
                             } else {
                                 System.err.println("Desktop no soportado");
                             }
