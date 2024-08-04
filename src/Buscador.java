@@ -34,11 +34,12 @@ public class Buscador extends JFrame {
     public Buscador() {
         setTitle("Buscar Libro");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(1400, 800);
-        setMinimumSize(new Dimension(1400, 800));
+        setSize(1400, 650);
+        setMinimumSize(new Dimension(1400, 650));
         setLocationRelativeTo(null);
 
         buscarPanel = new JPanel(new BorderLayout());
+        buscarPanel.setBackground(new Color(0xF2E8D5));
         setContentPane(buscarPanel);
 
         librosTable = new JTable();
@@ -75,45 +76,71 @@ public class Buscador extends JFrame {
 
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new BorderLayout());
+        topPanel.setBackground(new Color(0xF2E8D5));
         buscarPanel.add(topPanel, BorderLayout.NORTH);
 
         JLabel titleLabel = new JLabel("BIENVENIDO A LibroConnect", JLabel.CENTER);
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
+        titleLabel.setFont(new Font("Montserrat", Font.BOLD, 20));
+        titleLabel.setForeground(new Color(0x004D00));
         topPanel.add(titleLabel, BorderLayout.NORTH);
 
         JLabel mensajeLabel = new JLabel("BUSCAR LIBROS", JLabel.CENTER);
-        mensajeLabel.setFont(new Font("Arial", Font.BOLD, 17));
+        mensajeLabel.setFont(new Font("Montserrat", Font.BOLD, 17));
+        mensajeLabel.setForeground(new Color(0x004D00));
         topPanel.add(mensajeLabel, BorderLayout.CENTER);
 
         JPanel controlsPanel = new JPanel();
         controlsPanel.setLayout(new BoxLayout(controlsPanel, BoxLayout.Y_AXIS));
+        controlsPanel.setBackground(new Color(0xF2E8D5));
         topPanel.add(controlsPanel, BorderLayout.SOUTH);
 
         JPanel tituloPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        tituloPanel.setBackground(new Color(0xF2E8D5));
         JLabel tituloLabel = new JLabel("Título:");
+        tituloLabel.setFont(new Font("Roboto", Font.PLAIN, 14));
+        tituloLabel.setForeground(new Color(0x004D00));
         tituloTxt = new JTextField(30);
+        tituloTxt.setFont(new Font("Roboto", Font.PLAIN, 14));
+        tituloTxt.setForeground(new Color(0x333333));
         tituloPanel.add(tituloLabel);
         tituloPanel.add(tituloTxt);
         controlsPanel.add(tituloPanel);
 
         JPanel autorPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        autorPanel.setBackground(new Color(0xF2E8D5));
         JLabel autorLabel = new JLabel("Autor:");
+        autorLabel.setFont(new Font("Roboto", Font.PLAIN, 14));
+        autorLabel.setForeground(new Color(0x004D00));
         autorTxt = new JTextField(30);
+        autorTxt.setFont(new Font("Roboto", Font.PLAIN, 14));
+        autorTxt.setForeground(new Color(0x333333));
         autorPanel.add(autorLabel);
         autorPanel.add(autorTxt);
         controlsPanel.add(autorPanel);
 
         JPanel generoPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        generoPanel.setBackground(new Color(0xF2E8D5));
         JLabel generoLabel = new JLabel("Género:");
+        generoLabel.setFont(new Font("Roboto", Font.PLAIN, 14));
+        generoLabel.setForeground(new Color(0x004D00));
         generoComboBox = new JComboBox<>(new String[]{"Todos", "Novela", "Ciencia", "Ficción", "Fantasía", "Misterio", "Romance", "Terror", "Aventura"});
+        generoComboBox.setFont(new Font("Roboto", Font.PLAIN, 14));
+        generoComboBox.setForeground(new Color(0x333333));
         generoPanel.add(generoLabel);
         generoPanel.add(generoComboBox);
         controlsPanel.add(generoPanel);
 
         JPanel buttonPanel = new JPanel();
+        buttonPanel.setBackground(new Color(0xF2E8D5));
         buttonPanel.setLayout(new FlowLayout());
         buscarButton = new JButton("Buscar");
+        buscarButton.setFont(new Font("Open Sans", Font.BOLD, 14));
+        buscarButton.setForeground(new Color(0x333333));
+        buscarButton.setBackground(new Color(0x42743F));
         volverBtn = new JButton("Salir");
+        volverBtn.setFont(new Font("Open Sans", Font.BOLD, 14));
+        volverBtn.setForeground(new Color(0x333333));
+        volverBtn.setBackground(new Color(0x42743F));
         buttonPanel.add(buscarButton);
         buttonPanel.add(volverBtn);
         controlsPanel.add(buttonPanel);
@@ -229,7 +256,7 @@ public class Buscador extends JFrame {
                     int row = librosTable.getSelectedRow();
                     String linkDescarga = (String) tableModel.getValueAt(row, 6);
                     String libro = (String) tableModel.getValueAt(row, 0);
-                    String usuario = "nombre_del_usuario";  // Aquí puedes obtener el nombre del usuario actual
+                    String usuario = UsuarioActual.getNombreUsuario();
 
                     if (linkDescarga != null && !linkDescarga.isEmpty()) {
                         try {
@@ -257,6 +284,7 @@ public class Buscador extends JFrame {
         public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column) {
             label = (value == null) ? "" : value.toString();
             button.setText("Descargar");
+
             return button;
         }
 
@@ -266,7 +294,4 @@ public class Buscador extends JFrame {
         }
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new Buscador());
-    }
 }

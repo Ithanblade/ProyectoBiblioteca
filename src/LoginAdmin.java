@@ -57,6 +57,9 @@ public class LoginAdmin extends JFrame {
 
                         if (usuarioTxt.getText().equals(usuario) && Encriptacion.generateHash(contraTxt.getText()).equals(contrasena)) {
                             JOptionPane.showMessageDialog(null, "Acceso Exitoso");
+
+                            UsuarioActual.setNombreUsuario(usuario);
+
                             new MenuAdmin();
                             setVisible(false);
                             acceso = true;

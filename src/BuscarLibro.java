@@ -37,6 +37,7 @@ public class BuscarLibro extends JFrame {
         setLocationRelativeTo(null);
 
         buscarPanel = new JPanel(new BorderLayout());
+        buscarPanel.setBackground(new Color(0xF2E8D5));
         setContentPane(buscarPanel);
 
         librosTable = new JTable();
@@ -66,51 +67,74 @@ public class BuscarLibro extends JFrame {
 
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new BorderLayout());
+        topPanel.setBackground(new Color(0xF2E8D5));
         buscarPanel.add(topPanel, BorderLayout.NORTH);
 
-
-        JLabel titleLabel = new JLabel("BUSCAR LIBROS", JLabel.CENTER);
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
+        JLabel titleLabel = new JLabel("BIENVENIDO A LibroConnect", JLabel.CENTER);
+        titleLabel.setFont(new Font("Montserrat", Font.BOLD, 20));
+        titleLabel.setForeground(new Color(0x004D00));
         topPanel.add(titleLabel, BorderLayout.NORTH);
 
+        JLabel mensajeLabel = new JLabel("BUSCAR LIBROS", JLabel.CENTER);
+        mensajeLabel.setFont(new Font("Montserrat", Font.BOLD, 17));
+        mensajeLabel.setForeground(new Color(0x004D00));
+        topPanel.add(mensajeLabel, BorderLayout.CENTER);
 
         JPanel controlsPanel = new JPanel();
-        controlsPanel.setLayout(new BoxLayout(controlsPanel, BoxLayout.Y_AXIS)); // Vertical layout
-        topPanel.add(controlsPanel, BorderLayout.CENTER);
-
+        controlsPanel.setLayout(new BoxLayout(controlsPanel, BoxLayout.Y_AXIS));
+        controlsPanel.setBackground(new Color(0xF2E8D5));
+        topPanel.add(controlsPanel, BorderLayout.SOUTH);
 
         JPanel tituloPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        tituloPanel.setBackground(new Color(0xF2E8D5));
         JLabel tituloLabel = new JLabel("Título:");
-        tituloTxt = new JTextField(30); // Ajusta el tamaño del campo de texto
+        tituloLabel.setFont(new Font("Roboto", Font.PLAIN, 14));
+        tituloLabel.setForeground(new Color(0x004D00));
+        tituloTxt = new JTextField(30);
+        tituloTxt.setFont(new Font("Roboto", Font.PLAIN, 14));
+        tituloTxt.setForeground(new Color(0x333333));
         tituloPanel.add(tituloLabel);
         tituloPanel.add(tituloTxt);
         controlsPanel.add(tituloPanel);
 
-
         JPanel autorPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        autorPanel.setBackground(new Color(0xF2E8D5));
         JLabel autorLabel = new JLabel("Autor:");
-        autorTxt = new JTextField(30); // Ajusta el tamaño del campo de texto
+        autorLabel.setFont(new Font("Roboto", Font.PLAIN, 14));
+        autorLabel.setForeground(new Color(0x004D00));
+        autorTxt = new JTextField(30);
+        autorTxt.setFont(new Font("Roboto", Font.PLAIN, 14));
+        autorTxt.setForeground(new Color(0x333333));
         autorPanel.add(autorLabel);
         autorPanel.add(autorTxt);
         controlsPanel.add(autorPanel);
 
-
         JPanel generoPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        generoPanel.setBackground(new Color(0xF2E8D5));
         JLabel generoLabel = new JLabel("Género:");
-        generoComboBox = new JComboBox<>(new String[]{"Todos", "Novela","Ciencia Ficción","Fantasía","Misterio","Romance","Terror","Aventura"});
+        generoLabel.setFont(new Font("Roboto", Font.PLAIN, 14));
+        generoLabel.setForeground(new Color(0x004D00));
+        generoComboBox = new JComboBox<>(new String[]{"Todos", "Novela", "Ciencia Ficción", "Fantasía", "Misterio", "Romance", "Terror", "Aventura"});
+        generoComboBox.setFont(new Font("Roboto", Font.PLAIN, 14));
+        generoComboBox.setForeground(new Color(0x333333));
         generoPanel.add(generoLabel);
         generoPanel.add(generoComboBox);
         controlsPanel.add(generoPanel);
 
-
         JPanel buttonPanel = new JPanel();
+        buttonPanel.setBackground(new Color(0xF2E8D5));
         buttonPanel.setLayout(new FlowLayout());
         buscarButton = new JButton("Buscar");
+        buscarButton.setFont(new Font("Open Sans", Font.BOLD, 14));
+        buscarButton.setForeground(new Color(0x333333));
+        buscarButton.setBackground(new Color(0x42743F));
         volverBtn = new JButton("Volver");
+        volverBtn.setFont(new Font("Open Sans", Font.BOLD, 14));
+        volverBtn.setForeground(new Color(0x333333));
+        volverBtn.setBackground(new Color(0x42743F));
         buttonPanel.add(buscarButton);
         buttonPanel.add(volverBtn);
         controlsPanel.add(buttonPanel);
-
 
         buscarButton.addActionListener(new ActionListener() {
             @Override
@@ -122,7 +146,6 @@ public class BuscarLibro extends JFrame {
             }
         });
 
-
         volverBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -130,7 +153,6 @@ public class BuscarLibro extends JFrame {
                 new GestionLibros();
             }
         });
-
 
         cargarLibros("", "", "Todos");
 

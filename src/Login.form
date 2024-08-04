@@ -42,7 +42,7 @@
           </grid>
         </constraints>
         <properties>
-          <font name="Open Sans"/>
+          <font name="Roboto" size="14"/>
         </properties>
       </component>
       <component id="eb7bd" class="javax.swing.JLabel">
@@ -72,7 +72,7 @@
           </grid>
         </constraints>
         <properties>
-          <font name="Open Sans"/>
+          <font name="Roboto" size="14"/>
         </properties>
       </component>
       <component id="429be" class="javax.swing.JButton" binding="ingresarComoAdminButton" default-binding="true">

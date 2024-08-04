@@ -3,9 +3,12 @@
   <grid id="27dc6" binding="editarPanel" layout-manager="GridLayoutManager" row-count="13" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="582" height="455"/>
+      <xy x="20" y="20" width="582" height="459"/>
     </constraints>
-    <properties/>
+    <properties>
+      <background color="-857899"/>
+      <foreground color="-857899"/>
+    </properties>
     <border type="none"/>
     <children>
       <component id="d83a4" class="javax.swing.JButton" binding="editarButton" default-binding="true">
@@ -13,6 +16,9 @@
           <grid row="11" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <background color="-12422081"/>
+          <font name="Open Sans" size="16" style="1"/>
+          <foreground color="-13421773"/>
           <text value="Editar"/>
         </properties>
       </component>
@@ -21,6 +27,9 @@
           <grid row="12" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <background color="-12422081"/>
+          <font name="Open Sans" size="16" style="1"/>
+          <foreground color="-13421773"/>
           <text value="Volver"/>
         </properties>
       </component>
@@ -29,7 +38,8 @@
           <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font size="15"/>
+          <font name="Roboto" size="15"/>
+          <foreground color="-16757504"/>
           <text value="Genero:"/>
         </properties>
       </component>
@@ -38,7 +48,8 @@
           <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font size="15"/>
+          <font name="Roboto" size="15"/>
+          <foreground color="-16757504"/>
           <text value="Titulo:"/>
         </properties>
       </component>
@@ -47,7 +58,8 @@
           <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font size="15"/>
+          <font name="Roboto" size="15"/>
+          <foreground color="-16757504"/>
           <text value="Autor:"/>
         </properties>
       </component>
@@ -57,14 +69,18 @@
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <font name="Roboto" size="14"/>
+          <foreground color="-13421773"/>
+        </properties>
       </component>
       <component id="a45a7" class="javax.swing.JLabel">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font size="20"/>
+          <font name="Montserrat" size="20" style="1"/>
+          <foreground color="-16757504"/>
           <text value="Editar Libro"/>
         </properties>
       </component>
@@ -73,7 +89,8 @@
           <grid row="3" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font size="15"/>
+          <font name="Roboto" size="15"/>
+          <foreground color="-16757504"/>
           <text value="Ingrese los datos modificados (deje en blanco si no desea modificar un campo)"/>
         </properties>
       </component>
@@ -82,7 +99,8 @@
           <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font size="15"/>
+          <font name="Roboto" size="15"/>
+          <foreground color="-16757504"/>
           <text value="Ingrese el Libro a modificar"/>
         </properties>
       </component>
@@ -92,7 +110,10 @@
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <font name="Roboto" size="14"/>
+          <foreground color="-13421773"/>
+        </properties>
       </component>
       <hspacer id="6fa11">
         <constraints>
@@ -110,14 +131,18 @@
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <font name="Roboto" size="14"/>
+          <foreground color="-13421773"/>
+        </properties>
       </component>
       <component id="25c87" class="javax.swing.JLabel">
         <constraints>
           <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font size="15"/>
+          <font name="Roboto" size="15"/>
+          <foreground color="-16757504"/>
           <text value="Numero de Paginas:"/>
         </properties>
       </component>
@@ -127,14 +152,18 @@
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <font name="Roboto" size="14"/>
+          <foreground color="-13421773"/>
+        </properties>
       </component>
       <component id="59529" class="javax.swing.JLabel">
         <constraints>
           <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font size="15"/>
+          <font name="Roboto" size="15"/>
+          <foreground color="-16757504"/>
           <text value="Portada:"/>
         </properties>
       </component>
@@ -143,6 +172,9 @@
           <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <background color="-12422081"/>
+          <font name="Open Sans" size="14" style="1"/>
+          <foreground color="-13421773"/>
           <text value="Seleccionar Imagen"/>
         </properties>
       </component>
@@ -159,7 +191,8 @@
           <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font size="15"/>
+          <font name="Roboto" size="15"/>
+          <foreground color="-16757504"/>
           <text value="Link de descarga:"/>
         </properties>
       </component>
@@ -169,13 +202,18 @@
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <font name="Roboto" size="14"/>
+          <foreground color="-13421773"/>
+        </properties>
       </component>
       <component id="743df" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
         <constraints>
           <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <font name="Roboto" size="14"/>
+          <foreground color="-13421773"/>
           <model>
             <item value="Seleccione un genero..."/>
             <item value="Novela"/>

@@ -25,38 +25,55 @@ public class BuscarUsuario extends JFrame {
     public BuscarUsuario() {
         setTitle("Buscar Usuarios");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(600, 500);
-        setMinimumSize(new Dimension(600, 500));
+        setSize(600, 350);
+        setMinimumSize(new Dimension(600, 350));
         setLayout(new BorderLayout());
         setLocationRelativeTo(null);
 
         // Panel superior para búsqueda
         JPanel panelSuperior = new JPanel();
         panelSuperior.setLayout(new BoxLayout(panelSuperior, BoxLayout.Y_AXIS));
+        panelSuperior.setBackground(new Color(0xF2E8D5));
 
         JLabel tituloLabel = new JLabel("BUSCAR USUARIO", JLabel.CENTER);
-        tituloLabel.setFont(new Font("Arial", Font.BOLD, 16));
+        tituloLabel.setFont(new Font("Montserrat", Font.BOLD, 20));
+        tituloLabel.setForeground(new Color(0x004D00));
         panelSuperior.add(tituloLabel);
 
         JPanel panelBusqueda = new JPanel();
         panelBusqueda.setLayout(new GridLayout(4, 2, 5, 5));
+        panelBusqueda.setBackground(new Color(0xF2E8D5));
 
-        panelBusqueda.add(new JLabel("Nombre:"));
+        panelBusqueda.add(new JLabel("Nombre:", JLabel.LEFT));
         nombreTxt = new JTextField(20);
+        nombreTxt.setFont(new Font("Roboto", Font.PLAIN, 14));
+        nombreTxt.setForeground(new Color(0x333333));
         panelBusqueda.add(nombreTxt);
 
-        panelBusqueda.add(new JLabel("Correo:"));
+        panelBusqueda.add(new JLabel("Correo:", JLabel.LEFT));
         correoTxt = new JTextField(20);
+        correoTxt.setFont(new Font("Roboto", Font.PLAIN, 14));
+        correoTxt.setForeground(new Color(0x333333));
         panelBusqueda.add(correoTxt);
 
-        panelBusqueda.add(new JLabel("Preferencia:"));
-        preferenciaCombo = new JComboBox<>(new String[]{"Todos", "Novela", "Ciencia", "Ficción", "Fantasía", "Misterio", "Romance", "Terror", "Aventura"});
+        panelBusqueda.add(new JLabel("Preferencia:", JLabel.LEFT));
+        preferenciaCombo = new JComboBox<>(new String[]{"Todos", "Novela", "Ciencia Ficción", "Fantasía", "Misterio", "Romance", "Terror", "Aventura"});
+        preferenciaCombo.setFont(new Font("Roboto", Font.PLAIN, 14));
+        preferenciaCombo.setForeground(new Color(0x333333));
         panelBusqueda.add(preferenciaCombo);
 
         buscarButton = new JButton("Buscar");
+        buscarButton.setFont(new Font("Open Sans", Font.BOLD, 14));
+        buscarButton.setForeground(new Color(0x333333));
+        buscarButton.setBackground(new Color(0x42743F));
         panelBusqueda.add(buscarButton);
+
         volverBtn = new JButton("Volver");
+        volverBtn.setFont(new Font("Open Sans", Font.BOLD, 14));
+        volverBtn.setForeground(new Color(0x333333));
+        volverBtn.setBackground(new Color(0x42743F));
         panelBusqueda.add(volverBtn);
+
         panelSuperior.add(panelBusqueda);
 
         add(panelSuperior, BorderLayout.NORTH);

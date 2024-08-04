@@ -34,6 +34,7 @@ public class SeguimientoDescargas extends JFrame {
         setLocationRelativeTo(null);
 
         buscarPanel = new JPanel(new BorderLayout());
+        buscarPanel.setBackground(new Color(0xF2E8D5));
         setContentPane(buscarPanel);
 
         descargasTable = new JTable();
@@ -59,41 +60,63 @@ public class SeguimientoDescargas extends JFrame {
 
         JPanel topPanel = new JPanel();
         topPanel.setLayout(new BorderLayout());
+        topPanel.setBackground(new Color(0xF2E8D5));
         buscarPanel.add(topPanel, BorderLayout.NORTH);
 
         JLabel titleLabel = new JLabel("Seguimiento de Descargas", JLabel.CENTER);
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
+        titleLabel.setFont(new Font("Montserrat", Font.BOLD, 24));
+        titleLabel.setForeground(new Color(0x004D00));
         topPanel.add(titleLabel, BorderLayout.NORTH);
 
         JPanel controlsPanel = new JPanel();
         controlsPanel.setLayout(new BoxLayout(controlsPanel, BoxLayout.Y_AXIS));
+        controlsPanel.setBackground(new Color(0xF2E8D5));
         topPanel.add(controlsPanel, BorderLayout.CENTER);
 
         JPanel usuarioPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        usuarioPanel.setBackground(new Color(0xF2E8D5));
         JLabel usuarioLabel = new JLabel("Usuario:");
+        usuarioLabel.setFont(new Font("Roboto", Font.PLAIN, 14));
         usuarioTxt = new JTextField(30);
+        usuarioTxt.setFont(new Font("Roboto", Font.PLAIN, 14));
+        usuarioTxt.setForeground(new Color(0x333333));
         usuarioPanel.add(usuarioLabel);
         usuarioPanel.add(usuarioTxt);
         controlsPanel.add(usuarioPanel);
 
         JPanel libroPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        libroPanel.setBackground(new Color(0xF2E8D5));
         JLabel libroLabel = new JLabel("Libro:");
+        libroLabel.setFont(new Font("Roboto", Font.PLAIN, 14));
         libroTxt = new JTextField(30);
+        libroTxt.setFont(new Font("Roboto", Font.PLAIN, 14));
+        libroTxt.setForeground(new Color(0x333333));
         libroPanel.add(libroLabel);
         libroPanel.add(libroTxt);
         controlsPanel.add(libroPanel);
 
         JPanel fechaPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        fechaPanel.setBackground(new Color(0xF2E8D5));
         JLabel fechaLabel = new JLabel("Fecha (YYYY-MM-DD):");
+        fechaLabel.setFont(new Font("Roboto", Font.PLAIN, 14));
         fechaTxt = new JTextField(30);
+        fechaTxt.setFont(new Font("Roboto", Font.PLAIN, 14));
+        fechaTxt.setForeground(new Color(0x333333));
         fechaPanel.add(fechaLabel);
         fechaPanel.add(fechaTxt);
         controlsPanel.add(fechaPanel);
 
         JPanel buttonPanel = new JPanel();
+        buttonPanel.setBackground(new Color(0xF2E8D5));
         buttonPanel.setLayout(new FlowLayout());
         buscarButton = new JButton("Buscar");
+        buscarButton.setFont(new Font("Open Sans", Font.BOLD, 14));
+        buscarButton.setForeground(new Color(0x333333));
+        buscarButton.setBackground(new Color(0x42743F));
         volverBtn = new JButton("Volver");
+        volverBtn.setFont(new Font("Open Sans", Font.BOLD, 14));
+        volverBtn.setForeground(new Color(0x333333));
+        volverBtn.setBackground(new Color(0x42743F));
         buttonPanel.add(buscarButton);
         buttonPanel.add(volverBtn);
         controlsPanel.add(buttonPanel);
@@ -116,6 +139,7 @@ public class SeguimientoDescargas extends JFrame {
             }
         });
 
+        cargarDescargas("","","");
         setVisible(true);
     }
 
@@ -170,6 +194,5 @@ public class SeguimientoDescargas extends JFrame {
             e.printStackTrace();
         }
     }
-
 
 }

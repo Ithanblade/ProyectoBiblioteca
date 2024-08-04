@@ -5,7 +5,10 @@
     <constraints>
       <xy x="20" y="20" width="500" height="400"/>
     </constraints>
-    <properties/>
+    <properties>
+      <background color="-857899"/>
+      <foreground color="-13421773"/>
+    </properties>
     <border type="none"/>
     <children>
       <component id="edd09" class="javax.swing.JButton" binding="loginButton" default-binding="true">
@@ -13,7 +16,9 @@
           <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font size="16"/>
+          <background color="-12422081"/>
+          <font name="Open Sans" size="14" style="1"/>
+          <foreground color="-13421773"/>
           <text value="Login"/>
         </properties>
       </component>
@@ -22,7 +27,8 @@
           <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font size="20"/>
+          <font name="Montserrat" size="20" style="1"/>
+          <foreground color="-16757504"/>
           <text value="BIENVENIDO A LibroConnect "/>
         </properties>
       </component>
@@ -32,14 +38,17 @@
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <font name="Roboto" size="14"/>
+        </properties>
       </component>
       <component id="9d214" class="javax.swing.JLabel">
         <constraints>
           <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font size="15"/>
+          <font name="Roboto" size="14"/>
+          <foreground color="-16757504"/>
           <text value="Usuario:"/>
         </properties>
       </component>
@@ -48,7 +57,8 @@
           <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font size="15"/>
+          <font name="Roboto" size="14"/>
+          <foreground color="-16757504"/>
           <text value="Contraseña:"/>
         </properties>
       </component>
@@ -58,14 +68,18 @@
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <font name="Roboto" size="14"/>
+        </properties>
       </component>
       <component id="6d724" class="javax.swing.JButton" binding="ingresarComoUsuarioButton" default-binding="true">
         <constraints>
           <grid row="6" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font size="16"/>
+          <background color="-12422081"/>
+          <font name="Open Sans" size="14" style="1"/>
+          <foreground color="-13421773"/>
           <text value="Ingresar como Usuario"/>
         </properties>
       </component>
@@ -74,6 +88,8 @@
           <grid row="5" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <font name="Roboto" size="14"/>
+          <foreground color="-16757504"/>
           <text value="¿Es usted usuario?"/>
         </properties>
       </component>
@@ -82,7 +98,8 @@
           <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <font size="16"/>
+          <font name="Roboto" size="14"/>
+          <foreground color="-16757504"/>
           <text value="Login de Administrador"/>
         </properties>
       </component>

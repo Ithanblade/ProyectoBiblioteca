@@ -10,6 +10,7 @@ public class GestionLibros extends JFrame {
     private JButton editarLibroButton;
     private JButton eliminarLibroButton;
     private JButton buscarLibroButton;
+    private JLabel usActual;
 
     public GestionLibros() {
         setTitle("Gestion Usuarios");
@@ -19,6 +20,7 @@ public class GestionLibros extends JFrame {
         setMinimumSize(new Dimension(600, 400));
         pack();
         setLocationRelativeTo(null);
+        usActual.setText("Usuario Conectado: "+UsuarioActual.getNombreUsuario());
         setVisible(true);
 
         crearLibroButton.addActionListener(new ActionListener() {

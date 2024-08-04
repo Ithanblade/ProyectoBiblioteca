@@ -10,6 +10,7 @@ public class GestionUsuarios extends JFrame {
     private JButton eliminarUsuarioButton;
     private JButton buscarUsuarioButton;
     private JButton volverButton;
+    private JLabel usActual;
 
     public GestionUsuarios() {
 
@@ -20,6 +21,7 @@ public class GestionUsuarios extends JFrame {
         setMinimumSize(new Dimension(600, 400));
         pack();
         setLocationRelativeTo(null);
+        usActual.setText("Usuario Conectado: "+UsuarioActual.getNombreUsuario());
         setVisible(true);
 
         crearUsuarioButton.addActionListener(new ActionListener() {
@@ -54,6 +56,7 @@ public class GestionUsuarios extends JFrame {
         buscarUsuarioButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 new BuscarUsuario();
                 setVisible(false);
             }
