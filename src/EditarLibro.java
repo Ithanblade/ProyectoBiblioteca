@@ -27,12 +27,10 @@ public class EditarLibro extends JFrame {
     private JPanel editarPanel;
     private JButton volverBtn;
     private JTextField linkTxt;
-    private JComboBox comboBox1;
+    private JComboBox<String> comboBox1; // Debe especificar el tipo de datos para el JComboBox
     private BufferedImage portadaImage;
 
-
     public EditarLibro() {
-
         setTitle("Editar Libro");
         setContentPane(editarPanel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,6 +40,7 @@ public class EditarLibro extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
 
+        // Acción del botón Seleccionar Imagen
         seleccionarImagenButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -60,6 +59,7 @@ public class EditarLibro extends JFrame {
             }
         });
 
+        // Acción del botón "Editar"
         editarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -79,6 +79,7 @@ public class EditarLibro extends JFrame {
                     if (libroEncontrado != null) {
                         Document updates = new Document();
 
+                        // Agregar campos actualizados
                         if (!tituloTxt.getText().isEmpty()) {
                             updates.append("titulo", tituloTxt.getText());
                         }
@@ -94,10 +95,8 @@ public class EditarLibro extends JFrame {
                         if (!linkTxt.getText().isEmpty()) {
                             updates.append("linkDescarga", linkTxt.getText());
                         }
-                        if (comboBox1.getSelectedIndex() != 0) {
-                            updates.append("genero", comboBox1.getSelectedItem().toString());
-                        }
 
+                        // Manejo de la imagen de portada
                         if (portadaImage != null) {
                             ByteArrayOutputStream baos = new ByteArrayOutputStream();
                             ImageIO.write(portadaImage, "jpg", baos);
@@ -105,6 +104,7 @@ public class EditarLibro extends JFrame {
                             updates.append("portada", portadaBase64);
                         }
 
+                        // Actualización en la base de datos
                         if (!updates.isEmpty()) {
                             collection.updateOne(filtro, new Document("$set", updates));
                             JOptionPane.showMessageDialog(null, "Libro actualizado correctamente");
@@ -119,6 +119,8 @@ public class EditarLibro extends JFrame {
                 }
             }
         });
+
+        // Acción del botón "Volver"
         volverBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

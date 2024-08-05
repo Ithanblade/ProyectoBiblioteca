@@ -11,7 +11,7 @@ public class CrearUsuario extends JFrame {
     private JTextField usuarioTxt;
     private JTextField contraTxt;
     private JTextField correoTxt;
-    private JComboBox comboBox1;
+    private JComboBox<String> comboBox1;
     private JTextField confirmarTxt;
     private JPanel crearPanel;
     private JButton volverBtn;
@@ -26,26 +26,31 @@ public class CrearUsuario extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
 
+        // Acción del botón Crear
         crearButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String[] terminaciones = {".com", ".ec", ".gob", ".org", ".net"};
-
-                if (usuarioTxt.getText().isEmpty() || contraTxt.getText().isEmpty() || correoTxt.getText().isEmpty() || comboBox1.getSelectedItem().toString().equals("Seleccione una preferencia...")) {
+                // Verifica que todos los campos estén llenos
+                if (usuarioTxt.getText().isEmpty() || contraTxt.getText().isEmpty() ||
+                        correoTxt.getText().isEmpty() || comboBox1.getSelectedItem().toString().equals("Seleccione una preferencia...")) {
                     JOptionPane.showMessageDialog(null, "Por favor, llene todos los campos");
                     return;
                 }
 
+                // Verifica que las contraseñas coincidan
                 if (!contraTxt.getText().equals(confirmarTxt.getText())) {
                     JOptionPane.showMessageDialog(null, "Las contraseñas deben ser iguales");
                     return;
                 }
 
+                // Verifica que el correo electrónico tenga un formato válido
                 if (!correoTxt.getText().contains("@")) {
                     JOptionPane.showMessageDialog(null, "Ingrese un correo electrónico válido");
                     return;
                 }
 
+                // Verifica que el correo tenga una de las terminaciones válidas
+                String[] terminaciones = {".com", ".ec", ".gob", ".org", ".net"};
                 boolean correoValido = false;
                 for (String extension : terminaciones) {
                     if (correoTxt.getText().endsWith(extension)) {
@@ -63,6 +68,7 @@ public class CrearUsuario extends JFrame {
                     MongoDatabase database = mongoClient.getDatabase("BibliotecaDigital");
                     MongoCollection<Document> collection = database.getCollection("Usuarios");
 
+                    // Verifica si el usuario o correo ya existen
                     FindIterable<Document> documentos = collection.find();
                     for (Document documento : documentos) {
                         String usuario = documento.getString("usuario");
@@ -79,23 +85,25 @@ public class CrearUsuario extends JFrame {
                         }
                     }
 
+                    // Crea un nuevo usuario y lo guarda en la base de datos
                     String hashedPassword = Encriptacion.generateHash(contraTxt.getText());
-                    Usuario NuevoUsuario = new Usuario(usuarioTxt.getText(), correoTxt.getText(), comboBox1.getSelectedItem().toString(), hashedPassword);
+                    Usuario nuevoUsuario = new Usuario(usuarioTxt.getText(), correoTxt.getText(), comboBox1.getSelectedItem().toString(), hashedPassword);
 
-                    Document documento = new Document("usuario", NuevoUsuario.getUsuario())
-                            .append("correo", NuevoUsuario.getCorreo())
-                            .append("preferencia", NuevoUsuario.getPreferencia())
-                            .append("contraseña", NuevoUsuario.getContrasena());
+                    Document documento = new Document("usuario", nuevoUsuario.getUsuario())
+                            .append("correo", nuevoUsuario.getCorreo())
+                            .append("preferencia", nuevoUsuario.getPreferencia())
+                            .append("contraseña", nuevoUsuario.getContrasena());
 
                     collection.insertOne(documento);
                     JOptionPane.showMessageDialog(null, "Usuario creado correctamente");
                     System.out.println("Registro creado correctamente");
-                    new GestionUsuarios();
+                    new GestionUsuarios(); // Muestra la ventana de gestión de usuarios
                     setVisible(false);
                 }
             }
         });
 
+        // Acción del botón Volver
         volverBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -104,6 +112,4 @@ public class CrearUsuario extends JFrame {
             }
         });
     }
-
-
 }

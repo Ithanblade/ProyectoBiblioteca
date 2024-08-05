@@ -6,7 +6,6 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 import com.mongodb.client.FindIterable;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -30,16 +29,18 @@ public class BuscarUsuario extends JFrame {
         setLayout(new BorderLayout());
         setLocationRelativeTo(null);
 
-        // Panel superior para búsqueda
+        // Panel superior para la búsqueda
         JPanel panelSuperior = new JPanel();
         panelSuperior.setLayout(new BoxLayout(panelSuperior, BoxLayout.Y_AXIS));
         panelSuperior.setBackground(new Color(0xF2E8D5));
 
+        // Título
         JLabel tituloLabel = new JLabel("BUSCAR USUARIO", JLabel.CENTER);
         tituloLabel.setFont(new Font("Montserrat", Font.BOLD, 20));
         tituloLabel.setForeground(new Color(0x004D00));
         panelSuperior.add(tituloLabel);
 
+        // Panel de búsqueda con campos y botones
         JPanel panelBusqueda = new JPanel();
         panelBusqueda.setLayout(new GridLayout(4, 2, 5, 5));
         panelBusqueda.setBackground(new Color(0xF2E8D5));
@@ -103,7 +104,7 @@ public class BuscarUsuario extends JFrame {
         });
 
         // Cargar todos los usuarios al iniciar
-        buscarUsuarios(); // Cargar todos los usuarios
+        buscarUsuarios();
 
         setVisible(true);
     }
@@ -115,12 +116,14 @@ public class BuscarUsuario extends JFrame {
             MongoDatabase database = mongoClient.getDatabase("BibliotecaDigital");
             MongoCollection<Document> collection = database.getCollection("Usuarios");
 
+            // Obtener los filtros para la busqueda
             String nombreFiltro = nombreTxt.getText().trim();
             String correoFiltro = correoTxt.getText().trim();
             String preferenciaFiltro = preferenciaCombo.getSelectedItem().toString();
 
             Document filtro = new Document();
 
+            // Aplicar filtros si se ingresaron
             if (!nombreFiltro.isEmpty()) {
                 filtro.append("usuario", new Document("$regex", nombreFiltro).append("$options", "i"));
             }
@@ -131,6 +134,7 @@ public class BuscarUsuario extends JFrame {
                 filtro.append("preferencia", preferenciaFiltro);
             }
 
+            // Buscar en la colección de usuarios
             FindIterable<Document> resultados = collection.find(filtro);
 
             for (Document usuario : resultados) {
@@ -138,9 +142,11 @@ public class BuscarUsuario extends JFrame {
                 String correo = usuario.getString("correo");
                 String preferencia = usuario.getString("preferencia");
 
+                // Agregar cada usuario encontrado a la tabla
                 tableModel.addRow(new Object[]{usuarioNombre, correo, preferencia});
             }
 
+            // Mensaje si no se encuentran resultados
             if (tableModel.getRowCount() == 0) {
                 JOptionPane.showMessageDialog(null, "Usuario no encontrado");
             }
@@ -150,5 +156,4 @@ public class BuscarUsuario extends JFrame {
             JOptionPane.showMessageDialog(null, "Error al conectarse a la base de datos");
         }
     }
-
 }
