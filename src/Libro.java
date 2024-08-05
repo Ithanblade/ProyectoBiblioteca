@@ -22,6 +22,8 @@ public class Libro {
         this.link = link;
     }
 
+    // Métodos getter y setter para los atributos
+
     public String getTitulo() {
         return titulo;
     }

@@ -5,15 +5,19 @@ public class Usuario {
     String preferencia;
     String contrasena;
 
+    // Constructor por defecto
     public Usuario() {
     }
 
+    // Constructor con parámetros
     public Usuario(String usuario, String correo, String preferencia, String contrasena) {
         this.usuario = usuario;
         this.correo = correo;
         this.preferencia = preferencia;
         this.contrasena = contrasena;
     }
+
+    // Getters y Setters para los atributos
 
     public String getUsuario() {
         return usuario;
@@ -46,7 +50,4 @@ public class Usuario {
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
-
-
-
 }
