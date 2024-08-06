@@ -1,6 +1,8 @@
 En el presente archivo se mostrarán capturas que ilustren el funcionamiento del sistema y el link del video manual.
 
-Link del video:
+Link del video: https://www.youtube.com/watch?v=dt8ow2E_We8
+
+
 
 CAPTURAS:
 
