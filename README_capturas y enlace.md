@@ -7,6 +7,7 @@ Link del video: https://www.youtube.com/watch?v=dt8ow2E_We8
 CAPTURAS:
 
 Base de datos con colecciones/tablas
+
 ![image](https://github.com/user-attachments/assets/d0edc053-520a-403d-b847-b5e659786d32)
 
 
