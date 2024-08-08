@@ -23,9 +23,47 @@ Acceso exitoso
 
 ![image](https://github.com/user-attachments/assets/07b412a2-8cab-4a28-aa81-1eb2d4e379fb)
 
+Codigo
+
+Imagen con la importacion de las librerias para la coceccion con Mongo, funcionalidad del boton ingresar como Admin(cerrar form actual y abrir el login de administradores)
+
+![image](https://github.com/user-attachments/assets/8e8b1de4-f5c6-40ff-b9a9-dffab5d4a909)
+
+Accion del boton Login el cual mediante la coneccion a la base de datos valida el usuario y contraseña ingresados por el usuario con los registrados en la base.
+Guardar en la clase Usuaruio Actual el usuario que ingresa.
+
+![image](https://github.com/user-attachments/assets/d9eebe35-676e-4593-94dd-99ab19da21f1)
+
+Funcionalidad del boton Registro: cerrar form actual y abrir el registro de usuarios
+
+![image](https://github.com/user-attachments/assets/ffa2fb4a-e8c2-4503-b5eb-d28a63042344)
+
+
+
 Busqueda de libros y descarga de los mismo
 
 ![image](https://github.com/user-attachments/assets/569a7f1f-44fb-4ada-97c1-f68091627b88)
+
+Codigo
+
+Importacion de las librerias para la coneccion con Mongo, librerias para redimensionamiento de imagenes y su decodificacion de Base64
+
+![image](https://github.com/user-attachments/assets/eac1b3f9-ae44-4eaf-a4a9-2b8370d114e6)
+
+Creacion y edicion de los paneles y distintos componenetes visualez para el buscador incluyendo la taba donde se cargan los registros de libros.
+
+![image](https://github.com/user-attachments/assets/e607f2a8-52a2-4583-b03b-23a7948f1ff1)
+
+![image](https://github.com/user-attachments/assets/0206be81-00e8-4f5b-879e-ef25b9f01922)
+
+![image](https://github.com/user-attachments/assets/20436536-452b-4d66-a6bc-c6ceab1ee261)
+
+Accion del boton buscar: toma los datos que ingresa el usuario y los envía al metodo de busqueda
+Accion del boton volver(salir): regresa al Login
+
+![image](https://github.com/user-attachments/assets/43f0b22a-da01-459e-9fa3-0d14770de0f4)
+
+
 
 Descarga
 
